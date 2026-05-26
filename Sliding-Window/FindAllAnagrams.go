@@ -1,7 +1,18 @@
 package main
 
-func CountAnagramsOccurence(txt string, pat string) int {
-	result := 0
+import "fmt"
+
+func CheckAllZero(store map[rune]int) bool {
+	for _, val := range store {
+		if val != 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func FindAllAnagrams(txt string, pat string) []int {
+	result := []int{}
 	store := make(map[rune]int)
 	patArray := []rune(pat)
 	txtArray := []rune(txt)
@@ -22,7 +33,7 @@ func CountAnagramsOccurence(txt string, pat string) int {
 
 		if j-i+1 == size {
 			if CheckAllZero(store) {
-				result++
+				result = append(result, i)
 			}
 			_, ok := store[txtArray[i]]
 			if ok {
@@ -35,7 +46,11 @@ func CountAnagramsOccurence(txt string, pat string) int {
 	return result
 }
 
-// txt := "forxxorfxdofr"
-// pat := "for"
-// count := CountAnagramsOccurence(txt, pat)
-// fmt.Println("Count is: ", count)
+func main() {
+	txt := "cbaebabacd"
+	pat := "abc"
+	allAnagrams := FindAllAnagrams(txt, pat)
+	for _, val := range allAnagrams {
+		fmt.Println(val)
+	}
+}
