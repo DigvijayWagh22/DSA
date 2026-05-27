@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func CheckAllZero(store map[rune]int) bool {
 	for _, val := range store {
 		if val != 0 {
@@ -46,11 +44,9 @@ func FindAllAnagrams(txt string, pat string) []int {
 	return result
 }
 
-func main() {
-	txt := "cbaebabacd"
-	pat := "abc"
-	allAnagrams := FindAllAnagrams(txt, pat)
-	for _, val := range allAnagrams {
-		fmt.Println(val)
-	}
-}
+// txt := "cbaebabacd"
+// pat := "abc"
+// allAnagrams := FindAllAnagrams(txt, pat)
+// for _, val := range allAnagrams {
+// 	fmt.Println(val)
+// }
